@@ -13,7 +13,7 @@ type Rotation = {
 
 const Stars = (props: any) => {
   const ref = useRef<Rotation | null>(null);
-  const sphere = random.inSphere(new Float32Array(3000), { radius: 1.2 });
+  const sphere = random.inSphere(new Float32Array(2300), { radius: 1.2 });
     
   useFrame((_, delta) => {
     if (ref.current) {
@@ -21,14 +21,14 @@ const Stars = (props: any) => {
       (ref.current).rotation.y -= delta / 15;
     }
   });
-
+  
   return (
     <group rotation={[0, 0, Math.PI / 4]}>
       <Points ref={ref} positions={sphere} stride={3} frustumCulled {...props}>
         <PointMaterial
           transparent
-          color="#f272c8"
-          size={0.002}
+          color="#0E17CC"
+          size={0.007}
           sizeAttenuation={true}
           depthWrite={false}
         />
