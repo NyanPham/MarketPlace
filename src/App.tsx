@@ -1,9 +1,12 @@
-function App() {
-  return (
-    <h1 className="font-light text-3xl text-cyan-500">
-      Hello world
-    </h1>
-  )
-}
+import StarryBackground from "./components/StarryBackground";
 
-export default App
+const App = () => {
+  return (
+    <div className="App">
+      <StarryBackground />
+      {/* Your other components go here */}
+    </div>
+  );
+};
+
+export default App;
