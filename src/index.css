@@ -6,3 +6,10 @@
     font-family: "drone";
     src: url("../public/assets/fonts/dronerangerpro_bold.otf");
 }
+
+@layer components {
+    .input {
+        @apply w-full bg-transparent border border-[#89888B] rounded-[4px] appearance-none py-2 px-6 text-white outline-none focus:outline-none focus:ring focus:ring-[#DA458F] focus:ring-offset-4 transition duration-100;
+    }
+}
+
