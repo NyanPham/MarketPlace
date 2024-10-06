@@ -8,7 +8,7 @@ const Home = () => {
     <>
         <Header />
         <Banner />
-        <div className="relative h-screen">
+        <div className="relative min-h-screen pb-8">
             <StarryBackground />
             <MainContent />
         </div>

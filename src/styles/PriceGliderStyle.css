@@ -60,29 +60,40 @@ input[type='range']::-webkit-slider-thumb {
   cursor: pointer;
  -webkit-appearance: none;
 }
-  
+
 .tooltip {
   position: absolute;
   top: -40px;
-  transform: translateX(-50%);
-  background-color: #333;
+  transform: translateX(calc(-50% + var(--offset-x)));
+  background-color: #DA3AC0;
   color: #fff;
   padding: 10px;
   border-radius: 5px;
   font-size: 14px;
   display: none;
+  width: 50px;
   white-space: nowrap;
+  text-align: center;
+  font-weight: medium;
+} 
+
+.tooltip.min {
+  --offset-x: +6px;
 }
-  
+
+.tooltip.max {
+  --offset-x: -6px;
+}
+
 .tooltip::after {
   content: '';
   position: absolute;
-  bottom: -5px;
+  bottom: -20px;
   left: 50%;
   transform: translateX(-50%);
-  border-width: 5px;
+  border-width: 15px;
   border-style: solid;
-  border-color: #333 transparent transparent transparent;
+  border-color: #DA3AC0 transparent transparent transparent;
 }
 
 .tooltip.visible {

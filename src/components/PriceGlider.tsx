@@ -38,11 +38,11 @@ const PriceGlider = () => {
             <div className="line-segment middle-segment" style={{ left: `${minPercent}%`, width: `${maxPercent - minPercent}%` }}></div>
             <div className="line-segment right-segment" style={{ left: `${maxPercent}%`, width: `${100 - maxPercent}%` }}></div>
 
-            <div className={`tooltip ${dragging === 'min' ? 'visible' : ''}`} style={{ left: `${minPercent}%` }}>
+            <div className={`tooltip min ${dragging === 'min' ? 'visible' : ''}`} style={{ left: `${minPercent}%` }}>
               {minValue}
             </div>
 
-            <div className={`tooltip ${dragging === 'max' ? 'visible' : ''}`} style={{ left: `${maxPercent}%` }}>
+            <div className={`tooltip max ${dragging === 'max' ? 'visible' : ''}`} style={{ left: `${maxPercent}%` }}>
               {maxValue}
             </div>
               
@@ -71,7 +71,7 @@ const PriceGlider = () => {
             <input type="hidden" value={minValue} name="minValue" />
 
             <input type="hidden" value={maxValue} name="maxValue" />
-            
+
             <div className="price-labels">
               <div className="min-price">Min: ${minValue}</div>
 

@@ -3,7 +3,7 @@ import Home from "./pages/Home";
 
 const App = () => {
   return (
-    <div className="App">
+    <div className="App overflow-x-hidden">
       <Home/>
       {/* Your other components go here */}
     </div>
