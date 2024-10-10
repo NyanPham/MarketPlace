@@ -3,7 +3,7 @@ import { Category } from '../types'
 const categoryCache: { [key: number]: Category } = {}
 
 async function fetchCategories(): Promise<Category[]> {
-  const response = await fetch('/src/data/dev-categories.json')
+  const response = await fetch('/data/dev-categories.json')
   if (!response.ok) {
     throw new Error('Network response was not ok')
   }

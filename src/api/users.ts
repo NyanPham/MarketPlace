@@ -3,7 +3,7 @@ import { User } from '../types'
 const userCache: { [key: number]: User } = {}
 
 async function fetchUsers(): Promise<User[]> {
-  const response = await fetch('/src/data/dev-users.json')
+  const response = await fetch('/data/dev-users.json')
   if (!response.ok) {
     throw new Error('Network response was not ok')
   }

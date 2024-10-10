@@ -113,9 +113,9 @@ const ProductCardList = ({ categoryId, setSelectedCategoryId, shouldScrollUp, st
                 </div>
               ))
             : productsInCategory.map((product: Product) => <ProductCard key={product.id} product={product} />)}
-        </div>
+        </div>  
         {error && <div className="text-center mt-4 text-red-500 text-2xl">Error loading products</div>}
-        {!loading && productsInCategory.length === 0 && <div className="text-center mt-4 text-white text-2xl">No products found. Please reset the filter and try again!</div>}
+        {!loading && !error && productsInCategory.length === 0 && <div className="text-center mt-4 text-white text-2xl">No products found. Please reset the filter and try again!</div>}
       </div>
       {hasNextPage && !firstRender.current && !searchTrigger && (
         <div className="flex justify-center mt-8">

@@ -3,7 +3,7 @@ import { Theme } from '../types'
 const themeCache: { [key: number]: Theme } = {}
 
 async function fetchThemes(): Promise<Theme[]> {
-  const response = await fetch('/src/data/dev-themes.json')
+  const response = await fetch('/data/dev-themes.json')
   if (!response.ok) {
     throw new Error('Network response was not ok')
   }

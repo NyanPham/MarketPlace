@@ -3,7 +3,7 @@ import { Tier } from '../types'
 const tierCache: { [key: number]: Tier } = {}
 
 async function fetchTiers(): Promise<Tier[]> {
-  const response = await fetch('/src/data/dev-tiers.json')
+  const response = await fetch('/data/dev-tiers.json')
   if (!response.ok) {
     throw new Error('Network response was not ok')
   }

@@ -3,7 +3,7 @@ import { FiltersType, Product } from '../types'
 const productCache: { [key: number]: Product } = {}
 
 async function fetchProducts(filters: FiltersType, page: number = 1, pageSize: number = 10): Promise<{ products: Product[]; hasNextPage: boolean }> {
-  const response = await fetch('/src/data/dev-products.json')
+  const response = await fetch('/data/dev-products.json')
   if (!response.ok) {
     throw new Error('Network response was not ok')
   }
@@ -64,7 +64,7 @@ async function fetchProductById(productId: number): Promise<Product> {
     return productCache[productId]
   }
 
-  const response = await fetch('/src/data/dev-products.json')
+  const response = await fetch('/data/dev-products.json')
   if (!response.ok) {
     throw new Error('Network response was not ok')
   }
