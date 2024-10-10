@@ -39,7 +39,7 @@ const ProductCardList = ({ categoryId, setSelectedCategoryId, shouldScrollUp, st
   }
 
   const fetchFunction = () => fetchProducts(filters, page)
-  const { loading, error, value } = useFetch(fetchFunction, [page, searchTrigger, minPrice, maxPrice, searchValue, selectedTier, selectedTheme, sortedTime, sortedPrice])
+  const { loading, error, value } = useFetch(fetchFunction, [page, searchTrigger])
   const productsInCategory = products.filter((product) => categoryId === 0 || product.categoryIds.includes(categoryId))
 
   const fetchPreviousPages = useCallback(async () => {
@@ -89,7 +89,7 @@ const ProductCardList = ({ categoryId, setSelectedCategoryId, shouldScrollUp, st
       stopScrollUp()
     }
   }, [shouldScrollUp, stopScrollUp])
- 
+
   const loadMore = () => {
     setPage((prevPage) => prevPage + 1)
   }
@@ -113,9 +113,11 @@ const ProductCardList = ({ categoryId, setSelectedCategoryId, shouldScrollUp, st
                 </div>
               ))
             : productsInCategory.map((product: Product) => <ProductCard key={product.id} product={product} />)}
-        </div>  
+        </div>
         {error && <div className="text-center mt-4 text-red-500 text-2xl">Error loading products</div>}
-        {!loading && !error && productsInCategory.length === 0 && <div className="text-center mt-4 text-white text-2xl">No products found. Please reset the filter and try again!</div>}
+        {!loading && !error && productsInCategory.length === 0 && (
+          <div className="text-center mt-4 text-white text-2xl">No products found. Please reset the filter and try again!</div>
+        )}
       </div>
       {hasNextPage && !firstRender.current && !searchTrigger && (
         <div className="flex justify-center mt-8">

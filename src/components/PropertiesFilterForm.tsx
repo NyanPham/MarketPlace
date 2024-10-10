@@ -15,7 +15,7 @@ import SearchBar from './SearchBar'
 import PriceGlider from './PriceGlider'
 import CriteriaSelect, { CriteriaSelectOption } from './CriteriaSelect'
 import FilterButtonsGrid from './FilterButtonsGrid'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useCallback } from 'react'
 import { fetchTiers } from '../api/tiers'
 import { fetchThemes } from '../api/themes'
 import { Tier, Theme } from '../types'
@@ -29,6 +29,16 @@ const priceOptions: CriteriaSelectOption[] = [
   { name: 'Low to High', value: 'ascending', isDefault: true },
   { name: 'High to Low', value: 'descending', isDefault: false },
 ]
+
+const debounce = (func: Function, delay: number) => {
+  let timeoutId: ReturnType<typeof setTimeout>
+  return (...args: any[]) => {
+    if (timeoutId) clearTimeout(timeoutId)
+    timeoutId = setTimeout(() => {
+      func(...args)
+    }, delay)
+  }
+}
 
 const PropertiesFilterForm = () => {
   const dispatch = useDispatch()
@@ -68,6 +78,17 @@ const PropertiesFilterForm = () => {
     loadTiers()
     loadThemes()
   }, [])
+
+  const debouncedTriggerFilter = useCallback(
+    debounce(() => {
+      dispatch(toggleSearchTrigger(true))
+    }, 300),
+    [dispatch],
+  )
+
+  useEffect(() => {
+    debouncedTriggerFilter()
+  }, [selectedTier, selectedTheme, sortedTime, sortedPrice, debouncedTriggerFilter])
 
   const handleFilterSubmit = (e: React.FormEvent) => {
     e.preventDefault()
