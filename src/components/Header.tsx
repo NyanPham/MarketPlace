@@ -46,9 +46,9 @@ const Header = () => {
       window.removeEventListener('scroll', handleScroll)
     }
   }, [])
-
+  
   return (
-    <header className={`bg-[#17161A]/50 fixed top-0 left-0 w-full z-10 font-drone transition-transform duration-300 ${isHeaderVisible ? 'translate-y-0' : '-translate-y-full'}`}>
+    <header className={`bg-[#17161A]/50 fixed top-0 left-0 w-full z-10 font-drone select-none transition-transform duration-300 ${isHeaderVisible ? 'translate-y-0' : '-translate-y-full'}`}>
       <Container>
         <nav className="flex items-center justify-between text-white font-semibold uppercase font-drone text-sm px-6 py-2 lg:px-12 lg:py-6">
           <ul className="hidden lg:flex items-center justify-around">

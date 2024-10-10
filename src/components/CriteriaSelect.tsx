@@ -24,10 +24,10 @@ const CriteriaSelect = ({ title, options, selectedValue, setSelectedValue }: Cri
     console.log(e.target.value)
     e.target.blur()
   }
-
+    
   return (
     <PropertyFilterItem title={title} titleClasses="text-secondary">
-      <div className="relative mt-4 w-full">
+      <div className="relative mt-4 w-full select-none">
         <select
           className="select input font-medium appearance-none bg-transparent text-white border border-[#89888B] rounded-[4px] py-2 px-6 focus:outline-none focus:ring focus:ring-[#DA458F] focus:ring-offset-4 transition duration-100"
           value={selectedValue}
