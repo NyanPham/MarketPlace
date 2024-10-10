@@ -2,21 +2,24 @@ import React, { useState } from 'react'
 import '../styles/PriceGliderStyle.css'
 import PropertyFilterItem from './PropertyFilterItem'
 
-const PriceGlider = () => {
-  const [minValue, setMinValue] = useState(0)
-  const [maxValue, setMaxValue] = useState(100)
+type PriceGliderProps = {
+  minPrice: number
+  maxPrice: number
+  setminPrice: (value: number) => void
+  setmaxPrice: (value: number) => void
+}
+
+const PriceGlider = ({ minPrice, maxPrice, setminPrice, setmaxPrice }: PriceGliderProps) => {
   const [dragging, setDragging] = useState<'min' | 'max' | null>(null)
 
   const handleMinChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = Math.min(Number(e.target.value), maxValue - 1)
-
-    setMinValue(value)
+    const value = Math.min(Number(e.target.value), maxPrice - 1)
+    setminPrice(value)
   }
 
   const handleMaxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = Math.max(Number(e.target.value), minValue + 1)
-
-    setMaxValue(value)
+    const value = Math.max(Number(e.target.value), minPrice + 1)
+    setmaxPrice(value)
   }
 
   const handleDragStart = (type: 'min' | 'max') => {
@@ -27,57 +30,54 @@ const PriceGlider = () => {
     setDragging(null)
   }
 
-  const minPercent = (minValue / 100) * 100
-  const maxPercent = (maxValue / 100) * 100
-    
+  const minPercent = (minPrice / 100) * 100
+  const maxPercent = (maxPrice / 100) * 100
+
   return (
-    <PropertyFilterItem title='Price'>
-      <div className="price-glider">
-            {/* <div className="line"></div> */}
-            <div className="line-segment left-segment" style={{ width: `${minPercent}%` }}></div>
-            <div className="line-segment middle-segment" style={{ left: `${minPercent}%`, width: `${maxPercent - minPercent}%` }}></div>
-            <div className="line-segment right-segment" style={{ left: `${maxPercent}%`, width: `${100 - maxPercent}%` }}></div>
+    <PropertyFilterItem title="Price" titleClasses="mt-4 text-white">
+      <div className="price-glider mb-8">
+        <div className="line-segment left-segment" style={{ width: `${minPercent}%` }}></div>
+        <div className="line-segment middle-segment" style={{ left: `${minPercent}%`, width: `${maxPercent - minPercent}%` }}></div>
+        <div className="line-segment right-segment" style={{ left: `${maxPercent}%`, width: `${100 - maxPercent}%` }}></div>
 
-            <div className={`tooltip min ${dragging === 'min' ? 'visible' : ''}`} style={{ left: `${minPercent}%` }}>
-              {minValue}
-            </div>
+        <div className={`tooltip min ${dragging === 'min' ? 'visible' : ''}`} style={{ left: `${minPercent}%` }}>
+          {minPrice}
+        </div>
 
-            <div className={`tooltip max ${dragging === 'max' ? 'visible' : ''}`} style={{ left: `${maxPercent}%` }}>
-              {maxValue}
-            </div>
-              
-            <input
-              type="range"
-              min="0"
-              max="100"
-              value={minValue}
-              onChange={handleMinChange}
-              onMouseDown={() => handleDragStart('min')}
-              onMouseUp={handleDragEnd}
-              className="knob min-knob"
-            />
+        <div className={`tooltip max ${dragging === 'max' ? 'visible' : ''}`} style={{ left: `${maxPercent}%` }}>
+          {maxPrice}
+        </div>
 
-            <input
-              type="range"
-              min="0"
-              max="100"
-              value={maxValue}
-              onChange={handleMaxChange}
-              onMouseDown={() => handleDragStart('max')}
-              onMouseUp={handleDragEnd}
-              className="knob max-knob"
-            />
+        <input
+          type="range"
+          min="0"
+          max="100"
+          value={minPrice}
+          onChange={handleMinChange}
+          onMouseDown={() => handleDragStart('min')}
+          onMouseUp={handleDragEnd}
+          className="knob min-knob"
+        />
 
-            <input type="hidden" value={minValue} name="minValue" />
+        <input
+          type="range"
+          min="0"
+          max="100"
+          value={maxPrice}
+          onChange={handleMaxChange}
+          onMouseDown={() => handleDragStart('max')}
+          onMouseUp={handleDragEnd}
+          className="knob max-knob"
+        />
 
-            <input type="hidden" value={maxValue} name="maxValue" />
+        <input type="hidden" value={minPrice} name="minPrice" />
+        <input type="hidden" value={maxPrice} name="maxPrice" />
 
-            <div className="price-labels">
-              <div className="min-price">Min: ${minValue}</div>
-
-              <div className="max-price">Max: ${maxValue}</div>
-            </div>
-          </div>
+        <div className="price-labels">
+          <div className="min-price">Min: ${minPrice}</div>
+          <div className="max-price">Max: ${maxPrice}</div>
+        </div>
+      </div>
     </PropertyFilterItem>
   )
 }

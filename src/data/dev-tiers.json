@@ -1,0 +1,22 @@
+[
+  {
+    "id": 31,
+    "title": "Epic",
+    "description": "High-value items with rare availability."
+  },
+  {
+    "id": 32,
+    "title": "Legendary",
+    "description": "Extremely rare items with unique features."
+  },
+  {
+    "id": 33,
+    "title": "Rare",
+    "description": "Items that are uncommon and valuable."
+  },
+  {
+    "id": 34,
+    "title": "Common",
+    "description": "Frequently available items with standard features."
+  }
+]

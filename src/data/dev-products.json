@@ -1,0 +1,202 @@
+[
+  {
+    "id": 1,
+    "imageUrl": "https://placehold.co/235x233",
+    "tierId": 31,
+    "sellerId": 31,
+    "themeId": 21,
+    "title": "Product 1",
+    "price": 2.75,
+    "releasedAt": "2023-01-01T00:00:00Z"
+  },
+  {
+    "id": 2,
+    "imageUrl": "https://placehold.co/235x233",
+    "tierId": 31,
+    "title": "Product 2",
+    "sellerId": 31,
+    "price": 3.5,
+    "themeId": 22,
+    "releasedAt": "2023-10-31T00:00:00Z"
+  },
+  {
+    "id": 3,
+    "imageUrl": "https://placehold.co/235x233",
+    "tierId": 31,
+    "title": "Product 3",
+    "sellerId": 31,
+    "price": 4.0,
+    "themeId": 23,
+    "releasedAt": "2023-12-25T00:00:00Z"
+  },
+  {
+    "id": 4,
+    "imageUrl": "https://placehold.co/235x233",
+    "tierId": 31,
+    "title": "Product 4",
+    "sellerId": 31,
+    "price": 5.25,
+    "themeId": 21,
+    "releasedAt": "2023-01-01T00:00:00Z"
+  },
+  {
+    "id": 5,
+    "imageUrl": "https://placehold.co/235x233",
+    "tierId": 31,
+    "title": "Product 5",
+    "sellerId": 31,
+    "price": 6.75,
+    "themeId": 22,
+    "releasedAt": "2023-10-31T00:00:00Z"
+  },
+  {
+    "id": 6,
+    "imageUrl": "https://placehold.co/235x233",
+    "tierId": 31,
+    "title": "Product 6",
+    "sellerId": 31,
+    "price": 7.0,
+    "themeId": 23,
+    "releasedAt": "2023-12-25T00:00:00Z"
+  },
+  {
+    "id": 7,
+    "imageUrl": "https://placehold.co/235x233",
+    "tierId": 31,
+    "title": "Product 7",
+    "sellerId": 31,
+    "price": 8.25,
+    "themeId": 21,
+    "releasedAt": "2023-01-01T00:00:00Z"
+  },
+  {
+    "id": 8,
+    "imageUrl": "https://placehold.co/235x233",
+    "tierId": 31,
+    "title": "Product 8",
+    "sellerId": 31,
+    "price": 9.5,
+    "themeId": 22,
+    "releasedAt": "2023-10-31T00:00:00Z"
+  },
+  {
+    "id": 9,
+    "imageUrl": "https://placehold.co/235x233",
+    "tierId": 31,
+    "title": "Product 9",
+    "sellerId": 31,
+    "price": 10.75,
+    "themeId": 23,
+    "releasedAt": "2023-12-25T00:00:00Z"
+  },
+  {
+    "id": 10,
+    "imageUrl": "https://placehold.co/235x233",
+    "tierId": 31,
+    "title": "Product 10",
+    "sellerId": 31,
+    "price": 11.0,
+    "themeId": 21,
+    "releasedAt": "2023-01-01T00:00:00Z"
+  },
+  {
+    "id": 11,
+    "imageUrl": "https://placehold.co/235x233",
+    "tierId": 31,
+    "title": "Product 11",
+    "sellerId": 31,
+    "price": 12.25,
+    "themeId": 22,
+    "releasedAt": "2023-10-31T00:00:00Z"
+  },
+  {
+    "id": 12,
+    "imageUrl": "https://placehold.co/235x233",
+    "tierId": 31,
+    "title": "Product 12",
+    "sellerId": 31,
+    "price": 13.5,
+    "themeId": 23,
+    "releasedAt": "2023-12-25T00:00:00Z"
+  },
+  {
+    "id": 13,
+    "imageUrl": "https://placehold.co/235x233",
+    "tierId": 31,
+    "title": "Product 13",
+    "sellerId": 31,
+    "price": 14.75,
+    "themeId": 21,
+    "releasedAt": "2023-01-01T00:00:00Z"
+  },
+  {
+    "id": 14,
+    "imageUrl": "https://placehold.co/235x233",
+    "tierId": 31,
+    "title": "Product 14",
+    "sellerId": 31,
+    "price": 15.0,
+    "themeId": 22,
+    "releasedAt": "2023-10-31T00:00:00Z"
+  },
+  {
+    "id": 15,
+    "imageUrl": "https://placehold.co/235x233",
+    "tierId": 31,
+    "title": "Product 15",
+    "sellerId": 31,
+    "price": 16.25,
+    "themeId": 23,
+    "releasedAt": "2023-12-25T00:00:00Z"
+  },
+  {
+    "id": 16,
+    "imageUrl": "https://placehold.co/235x233",
+    "tierId": 31,
+    "title": "Product 16",
+    "sellerId": 31,
+    "price": 17.5,
+    "themeId": 21,
+    "releasedAt": "2023-01-01T00:00:00Z"
+  },
+  {
+    "id": 17,
+    "imageUrl": "https://placehold.co/235x233",
+    "tierId": 31,
+    "title": "Product 17",
+    "sellerId": 31,
+    "price": 18.75,
+    "themeId": 22,
+    "releasedAt": "2023-10-31T00:00:00Z"
+  },
+  {
+    "id": 18,
+    "imageUrl": "https://placehold.co/235x233",
+    "tierId": 31,
+    "title": "Product 18",
+    "sellerId": 31,
+    "price": 19.0,
+    "themeId": 23,
+    "releasedAt": "2023-12-25T00:00:00Z"
+  },
+  {
+    "id": 19,
+    "imageUrl": "https://placehold.co/235x233",
+    "tierId": 31,
+    "title": "Product 19",
+    "sellerId": 31,
+    "price": 20.25,
+    "themeId": 21,
+    "releasedAt": "2023-01-01T00:00:00Z"
+  },
+  {
+    "id": 20,
+    "imageUrl": "https://placehold.co/235x233",
+    "tierId": 31,
+    "title": "Product 20",
+    "sellerId": 31,
+    "price": 21.5,
+    "themeId": 22,
+    "releasedAt": "2023-10-31T00:00:00Z"
+  }
+]
