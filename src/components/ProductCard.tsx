@@ -39,11 +39,11 @@ const ProductCard = ({ product }: ProductCardProps) => {
 
     toast.info('Feature in development. Pleease come back later!')
   }
-
+  
   return (
     <Link to={`/products/${product.id}`} className="block bg-gray-800 bg-opacity-60 p-4 pb-5 rounded-lg select-none">
       <div className="relative">
-        {loading ? <Skeleton height={200} /> : <LazyLoadImage src={product.imageUrl} alt={product.title} className="w-full h-auto rounded-md" effect="blur" />}
+        {loading ? <Skeleton height={200} /> : <LazyLoadImage src={product.imageUrl} alt={product.title} className="w-full h-auto rounded-md block" effect="blur" style={{ width: "100%" }} />}
         {tier && !loading && <div className="absolute top-2 left-2 bg-gray-700 bg-opacity-50 text-white text-xs px-2 py-1 leading-4 pb-1 rounded-sm">{tier.title}</div>}
         <button className="absolute top-2 right-2 text-red-500 text-xl" onClick={handleAddWishlist}>
           <FontAwesomeIcon icon={faHeart} className="text-white" />

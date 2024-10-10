@@ -46,7 +46,7 @@ const Header = () => {
       window.removeEventListener('scroll', handleScroll)
     }
   }, [])
-  
+    
   return (
     <header className={`bg-[#17161A]/50 fixed top-0 left-0 w-full z-10 font-drone select-none transition-transform duration-300 ${isHeaderVisible ? 'translate-y-0' : '-translate-y-full'}`}>
       <Container>
@@ -92,7 +92,7 @@ const Header = () => {
               <FontAwesomeIcon icon={faCaretDown} className={`transition-transform duration-300 ${burgerShown ? 'rotate-180' : 'rotate-0'}`} />
             </button>
             <div
-              className={`fixed top-0 left-0 h-full w-full z-10 bg-[#17161A]/75 transition-all duration-300 ${
+              className={`fixed top-0 left-0 h-screen w-screen z-10 bg-[#17161A]/75 transition-all duration-300 ${
                 burgerShown ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
               }`}
             >
