@@ -61,8 +61,8 @@ const Footer = () => {
               <div className="text-lg ml-3">012345678910</div>
             </div>
             <div className="flex items-center">
-              <div className="w-6 h-6 bg-white rounded-full mr-2 flex items-center justify-center">
-                <FontAwesomeIcon icon={faMessage} className="text-[#17161A] text-xs" />
+              <div className="block relative after:content-[''] after:block after:absolute after:w-3 after:h-0.5 after:bg-black after:top-1.5 after:left-1 after:rounded-sm before:content-[''] before:block before:absolute before:w-2 before:h-0.5 before:bg-black before:top-2.5 before:left-1 before:rounded-sm">
+                <FontAwesomeIcon icon={faMessage} className="block w-6 h-6 text-white mr-2" />
               </div>
               <div className="text-lg ml-3">tymex-talent@tyme.com</div>
             </div>

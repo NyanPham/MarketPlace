@@ -29,14 +29,18 @@ const CriteriaSelect = ({ title, options, selectedValue, setSelectedValue }: Cri
     <PropertyFilterItem title={title} titleClasses="text-secondary">
       <div className="relative mt-4 w-full">
         <select
-          className="select input appearance-none bg-transparent text-white border border-[#89888B] rounded-[4px] py-2 px-6 focus:outline-none focus:ring focus:ring-[#DA458F] focus:ring-offset-4 transition duration-100"
+          className="select input font-medium appearance-none bg-transparent text-white border border-[#89888B] rounded-[4px] py-2 px-6 focus:outline-none focus:ring focus:ring-[#DA458F] focus:ring-offset-4 transition duration-100"
           value={selectedValue}
           onFocus={() => setIsFocused(true)}
           onBlur={() => setIsFocused(false)}
           onChange={handleChange}
         >
           {options.map((option) => (
-            <option key={option.value} value={option.value} className="bg-[#3A3841] hover:bg-[#4A4951] text-white hover:text-[#DA458F] selected:bg-[#DA458F] selected:text-white">
+            <option
+              key={option.value}
+              value={option.value}
+              className="font-medium bg-[#3A3841] hover:bg-[#4A4951] text-white hover:text-[#DA458F] selected:bg-[#DA458F] selected:text-white"
+            >
               {option.name}
             </option>
           ))}

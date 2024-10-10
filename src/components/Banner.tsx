@@ -1,8 +1,8 @@
-import cates from '/assets/cates.png'
-import arrivalTxt from '/assets/arrival-text.png'
-import newTag from '/assets/new-tag.png'
-import djText from '/assets/dj-text.png'
-import djChar from '/assets/dj-character.png'
+import cates from '/assets/banners/cates.png'
+import arrivalTxt from '/assets/banners/arrival-text.png'
+import newTag from '/assets/banners/new-tag.png'
+import djText from '/assets/banners/dj-text.png'
+import djChar from '/assets/banners/dj-character.png'
 import useOnScreen from '../hooks/useOnScreen'
 import { useEffect, useRef } from 'react'
 import Container from './Container'
@@ -50,7 +50,7 @@ const Banner = () => {
   }
 
   return (
-    <div ref={inViewRef} className="bg-no-repeat bg-center bg-cover w-full h-screen overflow-hidden" style={{ backgroundImage: `url('/assets/background.png')` }}>
+    <div ref={inViewRef} className="bg-no-repeat bg-center bg-cover w-full h-screen overflow-hidden" style={{ backgroundImage: `url('/assets/banners/background.png')` }}>
       <Container>
         <div className="absolute inset-0 bg-black opacity-70 z-0" />
         <img src={cates} alt="Categories" style={categoriesAnimation} className="absolute bottom-0 left-0 w-full" />
