@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { RootState } from '../store'
 import { FiltersType, Product } from '../types'
@@ -24,7 +24,6 @@ const ProductCardList = ({ categoryId, setSelectedCategoryId, shouldScrollUp, st
   const [products, setProducts] = useState<Product[]>([])
   const [page, setPage] = useState(1)
   const [hasNextPage, setHasNextPage] = useState(false)
-
   const inViewRef = useRef<HTMLDivElement | null>(null)
   const inView = useOnScreen(inViewRef, '-70px')
   const firstRender = useRef<boolean>(true)
@@ -42,6 +41,15 @@ const ProductCardList = ({ categoryId, setSelectedCategoryId, shouldScrollUp, st
   const fetchFunction = () => fetchProducts(filters, page)
   const { loading, error, value } = useFetch(fetchFunction, [page, searchTrigger])
   const productsInCategory = products.filter((product) => categoryId === 0 || product.categoryIds.includes(categoryId))
+
+  const fetchPreviousPages = useCallback(async () => {
+    let allProducts: Product[] = []
+    for (let currentPage = 1; currentPage <= page; currentPage++) {
+      const result = await fetchProducts(filters, currentPage)
+      allProducts = [...allProducts, ...result.products]
+    }
+    return { products: allProducts, hasNextPage: value?.hasNextPage || false }
+  }, [filters, page, fetchProducts, value])
 
   useEffect(() => {
     if (value) {
@@ -61,9 +69,19 @@ const ProductCardList = ({ categoryId, setSelectedCategoryId, shouldScrollUp, st
 
   useEffect(() => {
     if (!firstRender.current || !inView) return
-
     firstRender.current = false
   }, [inView])
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      fetchPreviousPages().then((result) => {
+        setProducts(result.products)
+        setHasNextPage(result.hasNextPage)
+      })
+    }, 60000)
+
+    return () => clearInterval(intervalId)
+  }, [filters, page])
 
   useEffect(() => {
     if (shouldScrollUp) {
@@ -71,7 +89,7 @@ const ProductCardList = ({ categoryId, setSelectedCategoryId, shouldScrollUp, st
       stopScrollUp()
     }
   }, [shouldScrollUp, stopScrollUp])
-
+ 
   const loadMore = () => {
     setPage((prevPage) => prevPage + 1)
   }
@@ -82,7 +100,7 @@ const ProductCardList = ({ categoryId, setSelectedCategoryId, shouldScrollUp, st
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
           {loading && productsInCategory.length === 0
             ? Array.from({ length: 8 }).map((_, index) => (
-                <div key={index} className="block bg-gray-800 bg-opacity-60 p-4 pb-5 rounded-lg select-none">
+                <div key={index} className="bg-gray-800 bg-opacity-60 p-4 pb-5 rounded-lg">
                   <Skeleton height={200} />
                   <div className="mt-4">
                     <Skeleton width={150} />
@@ -93,19 +111,20 @@ const ProductCardList = ({ categoryId, setSelectedCategoryId, shouldScrollUp, st
                     </div>
                   </div>
                 </div>
-              ))  
+              ))
             : productsInCategory.map((product: Product) => <ProductCard key={product.id} product={product} />)}
-        </div>  
+        </div>
         {error && <div className="text-center mt-4 text-red-500 text-2xl">Error loading products</div>}
         {!loading && productsInCategory.length === 0 && <div className="text-center mt-4 text-white text-2xl">No products found. Please reset the filter and try again!</div>}
-      </div>    
+      </div>
       {hasNextPage && !firstRender.current && !searchTrigger && (
-        <div className="flex justify-center mt-4 lg:mt-6">
+        <div className="flex justify-center mt-8">
           <button onClick={loadMore} className="btn w-80 py-5 font-medium" disabled={loading}>
             {!loading ? 'View more' : 'Loading'}
           </button>
         </div>
-      )}    
+      )}
+
       <LoadingLayer isVisible={loading && (inView || !firstRender.current)} />
     </>
   )
