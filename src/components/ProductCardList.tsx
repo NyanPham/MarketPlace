@@ -39,7 +39,7 @@ const ProductCardList = ({ categoryId, setSelectedCategoryId, shouldScrollUp, st
   }
 
   const fetchFunction = () => fetchProducts(filters, page)
-  const { loading, error, value } = useFetch(fetchFunction, [page, searchTrigger])
+  const { loading, error, value } = useFetch(fetchFunction, [page, searchTrigger, minPrice, maxPrice, searchValue, selectedTier, selectedTheme, sortedTime, sortedPrice])
   const productsInCategory = products.filter((product) => categoryId === 0 || product.categoryIds.includes(categoryId))
 
   const fetchPreviousPages = useCallback(async () => {
