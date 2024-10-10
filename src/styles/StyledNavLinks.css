@@ -1,0 +1,27 @@
+.styled-nav-link {
+  position: relative;
+  transition: color 350ms ease-in-out;
+}
+
+.styled-nav-link:not(.mobile)::after {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 20%;
+  min-width: 1.5rem;
+  height: 2px;
+  top: 110%;
+  left: 0.35rem;
+  background: linear-gradient(#da458f, #da34dd);
+  transform: scaleX(0);
+  transition: transform 350ms ease-in-out;
+  transform-origin: top left;
+}
+
+.styled-nav-link.is-active {
+  color: #da458f;
+}
+
+.styled-nav-link.is-active:not(.mobile)::after {
+  transform: scaleX(1);
+}

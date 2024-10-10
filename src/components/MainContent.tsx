@@ -1,13 +1,13 @@
-import CategoriesFilter from "./CategoriesFilter"
-import Container from "./Container"
-import PropertiesFilterForm from "./PropertiesFilterForm"
+import Container from './Container'
+import ProductsWithCategorisFilter from './ProductsWithCategorisFilter'
+import PropertiesFilterForm from './PropertiesFilterForm'
 
 const MainContent = () => {
   return (
     <Container>
-      <div className="flex pt-28 w-full">
+      <div className="flex flex-col lg:flex-row pt-28 w-full gap-8">
         <PropertiesFilterForm />
-        <CategoriesFilter />
+        <ProductsWithCategorisFilter />
       </div>
     </Container>
   )

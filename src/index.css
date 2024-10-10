@@ -3,13 +3,16 @@
 @tailwind utilities;
 
 @font-face {
-    font-family: "drone";
-    src: url("../public/assets/fonts/dronerangerpro_bold.otf");
+  font-family: 'drone';
+  src: url('/assets/fonts/dronerangerpro_bold.otf');
 }
 
 @layer components {
-    .input {
-        @apply cursor-pointer w-full bg-transparent border border-[#89888B] rounded-[4px] appearance-none py-2 px-6 text-white outline-none focus:outline-none focus:ring focus:ring-[#DA458F] focus:ring-offset-4 transition duration-100;
-    }
-}
+  .input {
+    @apply cursor-pointer w-full bg-transparent border border-[#89888B] rounded-[4px] appearance-none py-3 px-6 text-white outline-none focus:outline-none focus:ring-2 focus:ring-[#DA458F] focus:ring-offset-2 focus:ring-offset-[#1A1A1A] transition duration-100;
+  }
 
+  .btn {
+    @apply disabled:bg-slate-500 disabled:text-slate-700 bg-gradient-to-r from-[#DA458F] to-[#DA34DD] hover:from-[#DA458F] hover:to-[#DA34DD] text-white font-bold py-3 px-4 rounded transition-all duration-300;
+  }
+}

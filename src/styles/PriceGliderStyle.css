@@ -2,6 +2,7 @@
   position: relative;
   width: 100%;
   height: 50px;
+  user-select: none;
 }
 
 .line {
@@ -11,6 +12,7 @@
   right: 0;
   height: 4px;
   transform: translateY(-50%);
+  border-radius: 4px;
 }
 
 .line-segment {
@@ -18,64 +20,84 @@
   top: 50%;
   height: 8px;
   transform: translateY(-50%);
+  border-radius: 4px;
 }
 
-.left-segment, .right-segment {
-  background-color: #3A3841;
+.left-segment,
+.right-segment {
+  background-color: #3a3841;
 }
 
 .middle-segment {
-  background: linear-gradient(to right, #DA458F 1%, #DA41A2 24%, #DA37CE 81%, #DA34DD 100%);
+  background: linear-gradient(to right, #da458f 1%, #da41a2 24%, #da37ce 81%, #da34dd 100%);
 }
 
 .knob {
   position: absolute;
   top: 50%;
-  transform: translateY(-50%);
-  -webkit-appearance: none;
-  width: 20px;
-  height: 20px;
-  background-color: #3A3841;
-  border: 1px solid white;
+  transform: translateY(-50%) translateX(-50%);
+  width: 24px;
+  height: 24px;
   border-radius: 50%;
+  background-color: transparent;
+  border: 1px solid #fff;
   cursor: pointer;
+}
+
+.knob::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  display: block;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(246, 67, 228, 1), rgba(255, 84, 238, 0.1));
+  opacity: 1;
+}
+
+.knob::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  display: block;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(255, 255, 255, 1), rgba(255, 84, 238, 0.1)), radial-gradient(closest-side, rgba(246, 67, 228, 1), rgba(255, 84, 238, 0.1));
+  opacity: 1;
+  z-index: 1;
 }
 
 input[type='range'] {
   position: absolute;
   width: 100%;
   height: 4px;
-  background: #3A3841;
+  background: transparent;
   pointer-events: none;
-  -webkit-appearance: none;
-}
-
-input[type='range']::-webkit-slider-thumb {
-  pointer-events: all;
-  width: 24px;
-  height: 24px;
-  border: 1px solid white;
-  background-color: transparent;
-  border-radius: 50%;
-  cursor: pointer;
- -webkit-appearance: none;
+  opacity: 0;
 }
 
 .tooltip {
   position: absolute;
   top: -40px;
   transform: translateX(calc(-50% + var(--offset-x)));
-  background-color: #DA3AC0;
+  background-color: #da3ac0;
   color: #fff;
   padding: 10px;
   border-radius: 5px;
   font-size: 14px;
   display: none;
-  width: 50px;
+  min-width: 50px;
+  width: max-content;
   white-space: nowrap;
   text-align: center;
   font-weight: medium;
-} 
+}
 
 .tooltip.min {
   --offset-x: +6px;
@@ -93,7 +115,7 @@ input[type='range']::-webkit-slider-thumb {
   transform: translateX(-50%);
   border-width: 15px;
   border-style: solid;
-  border-color: #DA3AC0 transparent transparent transparent;
+  border-color: #da3ac0 transparent transparent transparent;
 }
 
 .tooltip.visible {

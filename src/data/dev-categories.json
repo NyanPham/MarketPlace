@@ -1,0 +1,56 @@
+[
+  {
+    "id": 51,
+    "slug": "upper-body",
+    "description": "Description for upper-body category",
+    "title": "Upper Body"
+  },
+  {
+    "id": 52,
+    "slug": "lower-body",
+    "description": "Description for lower-body category",
+    "title": "Lower Body"
+  },
+  {
+    "id": 53,
+    "slug": "hat",
+    "description": "Description for hat category",
+    "title": "Hat"
+  },
+  {
+    "id": 54,
+    "slug": "shoes",
+    "description": "Description for shoes category",
+    "title": "Shoes"
+  },
+  {
+    "id": 55,
+    "slug": "accessory",
+    "description": "Description for accessory category",
+    "title": "Accessory"
+  },
+  {
+    "id": 56,
+    "slug": "legendary",
+    "description": "Description for legendary category",
+    "title": "Legendary"
+  },
+  {
+    "id": 57,
+    "slug": "mythic",
+    "description": "Description for mythic category",
+    "title": "Mythic"
+  },
+  {
+    "id": 58,
+    "slug": "rare",
+    "description": "Description for rare category",
+    "title": "Rare"
+  },
+  {
+    "id": 59,
+    "slug": "epic",
+    "description": "Description for epic category",
+    "title": "Epic"
+  }
+]

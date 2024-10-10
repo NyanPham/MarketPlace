@@ -1,18 +1,45 @@
-import useAsync from "./useAsync"
+import { useState, useEffect } from 'react'
 
-const DEFAULT_OPTIONS = {
-  headers: { "Content-Type": "application/json" },
-}
+function useFetch<T>(fetchFunction: () => Promise<T>, dependencies: any[] = []) {
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState<Error | null>(null)
+  const [value, setValue] = useState<T | null>(null)
 
-export default function useFetch<T>(
-  url: string,
-  options: RequestInit = {},
-  dependencies: any[] = []
-): ReturnType<typeof useAsync<T>> {
-  return useAsync<T>(() => {
-    return fetch(url, { ...DEFAULT_OPTIONS, ...options }).then(res => {
-      if (res.ok) return res.json() as Promise<T>
-      return res.json().then(json => Promise.reject(json))
-    })
+  useEffect(() => {
+    let isMounted = true
+
+    setLoading(true)
+    setError(null)
+
+    const fetchData = () => {
+      fetchFunction()
+        .then((result) => {
+          if (isMounted) {
+            setValue(result)
+            setLoading(false)
+          }
+        })
+        .catch((error) => {
+          if (isMounted) {
+            setError(error)
+            setLoading(false)
+          }
+        })
+    }
+
+    // Simulate delay of fetching data
+    new Promise(() =>
+      setTimeout(() => {
+        fetchData()
+      }, 2300),
+    )
+
+    return () => {
+      isMounted = false
+    }
   }, dependencies)
+
+  return { loading, error, value }
 }
+
+export default useFetch

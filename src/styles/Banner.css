@@ -1,0 +1,92 @@
+@media (orientation: landscape) {
+  /* Banner.css */
+  .top-25 {
+    top: 25%;
+  }
+
+  .left-10vw {
+    left: 10vw;
+  }
+
+  .top-29 {
+    top: 29%;
+  }
+
+  .left-35vw {
+    right: 35vw;
+  }
+
+  .bottom-0 {
+    bottom: 0;
+  }
+
+  .right-20 {
+    right: 20%;
+  }
+
+  .right-10 {
+    right: 10%;
+  }
+
+  .w-25 {
+    width: 25%;
+  }
+
+  .w-29 {
+    width: 29%;
+  }
+
+  .w-23 {
+    width: 23%;
+  }
+
+  .w-30 {
+    width: 30%;
+  }
+}
+
+@media (orientation: portrait) {
+  .top-25 {
+    top: 27%;
+  }
+
+  .left-10vw {
+    left: 10%;
+  }
+
+  .top-29 {
+    top: 45%;
+  }
+
+  .left-35vw {
+    right: 0%;
+  }
+
+  .bottom-0 {
+    bottom: 0;
+  }
+
+  .right-20 {
+    right: 0 !important;
+  }
+
+  .right-10 {
+    right: 0 !important;
+  }
+
+  .w-25 {
+    width: 60%;
+  }
+
+  .w-29 {
+    width: 75%;
+  }
+
+  .w-23 {
+    width: 30%;
+  }
+
+  .w-30 {
+    width: 25%;
+  }
+}

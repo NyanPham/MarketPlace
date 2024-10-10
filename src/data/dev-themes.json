@@ -1,0 +1,22 @@
+[
+  {
+    "id": 21,
+    "title": "New Year",
+    "description": "Items themed around the New Year celebration."
+  },
+  {
+    "id": 22,
+    "title": "Halloween",
+    "description": "Spooky items for Halloween."
+  },
+  {
+    "id": 23,
+    "title": "Christmas",
+    "description": "Festive items for the Christmas season."
+  },
+  {
+    "id": 24,
+    "title": "Summer",
+    "description": "Items perfect for the summer season."
+  }
+]
