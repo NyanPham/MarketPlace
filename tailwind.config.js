@@ -5,7 +5,7 @@ export default {
     extend: {
       backgroundImage: {
         universe: 'linear-gradient(120deg, #03060E 0%, #070E20 100%)',
-        banner: 'url(./public/assets/background.png) no-repeat center center',
+        banner: 'url(/assets/background.png) no-repeat center center',
       },
       textColor: {
         secondary: '#89888B',

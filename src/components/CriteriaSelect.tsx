@@ -36,7 +36,7 @@ const CriteriaSelect = ({ title, options, selectedValue, setSelectedValue }: Cri
           onChange={handleChange}
         >
           {options.map((option) => (
-            <option key={option.value} value={option.value} className="bg-[#3A3841]">
+            <option key={option.value} value={option.value} className="bg-[#3A3841] hover:bg-[#4A4951] text-white hover:text-[#DA458F] selected:bg-[#DA458F] selected:text-white">
               {option.name}
             </option>
           ))}

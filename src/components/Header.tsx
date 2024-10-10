@@ -3,14 +3,15 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleDown, faCaretDown, faGlobe } from '@fortawesome/free-solid-svg-icons'
 import { useToggle } from '../hooks/useToggle'
 import Container from './Container'
+import { NavLink } from 'react-router-dom'
 
 const Header = () => {
   const [dropdownShown, toggleDropdown, setDropdown] = useToggle(false)
-  const [burgerShown, toggleBurger] = useToggle(false)
+  const [burgerShown, toggleBurger, setBurger] = useToggle(false)
   const dropdownRef = useRef<HTMLDivElement | null>(null)
 
   const handleClickOutside = (event: MouseEvent) => {
-    if (dropdownRef.current && dropdownRef.current.contains(event.target as Node)) {
+    if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
       setDropdown(false)
     }
   }
@@ -32,30 +33,30 @@ const Header = () => {
       <Container>
         <nav className="flex items-center justify-between text-white font-semibold uppercase font-drone text-sm px-6 py-2 lg:px-12 lg:py-6">
           <ul className="hidden lg:flex items-center justify-around">
-            <li className="mr-6">
-              <a href="#" className="text-lg">
+            <li className="mr-6 md:mr-10 lg:mr-12">
+              <NavLink to="/" className={({ isActive }) => `text-lg styled-nav-link ${isActive ? 'is-active' : ''}`}>
                 Home
-              </a>
+              </NavLink>
             </li>
-            <li className="mr-6">
-              <a href="#" className="text-lg">
+            <li className="mr-6 md:mr-10 lg:mr-12">
+              <NavLink to="/about" className={({ isActive }) => `text-lg styled-nav-link ${isActive ? 'is-active' : ''}`}>
                 About us
-              </a>
+              </NavLink>
             </li>
-            <li className="mr-6">
-              <a href="#" className="text-lg">
+            <li className="mr-6 md:mr-10 lg:mr-12">
+              <NavLink to="/teams" className={({ isActive }) => `text-lg styled-nav-link ${isActive ? 'is-active' : ''}`}>
                 Our teams
-              </a>
+              </NavLink>
             </li>
-            <li className="mr-6">
-              <a href="#" className="text-lg">
+            <li className="mr-6 md:mr-10 lg:mr-12">
+              <NavLink to="/roadmap" className={({ isActive }) => `text-lg styled-nav-link ${isActive ? 'is-active' : ''}`}>
                 Marketplace roadmap
-              </a>
+              </NavLink>
             </li>
-            <li className="mr-6">
-              <a href="#" className="text-lg">
+            <li className="mr-6 md:mr-10 lg:mr-12">
+              <NavLink to="/whitepaper" className={({ isActive }) => `text-lg styled-nav-link ${isActive ? 'is-active' : ''}`}>
                 Whitepaper
-              </a>
+              </NavLink>
             </li>
           </ul>
           {/* For mobile and tablet */}
@@ -64,38 +65,38 @@ const Header = () => {
               className="bg-gradient-to-r from-[#DA458F] to-[#DA34DD] hover:from-[#DA458F] hover:to-[#DA34DD] text-white font-bold py-1 px-3 rounded mr-4 z-20"
               onClick={toggleBurger}
             >
-              <FontAwesomeIcon icon={faCaretDown} className={`transition-transform duration-300 ${dropdownShown ? 'rotate-180' : 'rotate-0'}`} />
+              <FontAwesomeIcon icon={faCaretDown} className={`transition-transform duration-300 ${burgerShown ? 'rotate-180' : 'rotate-0'}`} />
             </button>
             <div
-              className={`fixed top-0 left-0 h-full w-full z-10 bg-[#17161A]/75 ${
-                burgerShown ? 'opacity-100 pointer-events-auto translate-y-2' : 'opacity-0 pointer-events-none -translate-y-8'
+              className={`fixed top-0 left-0 h-full w-full z-10 bg-[#17161A]/75 transition-all duration-300 ${
+                burgerShown ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
               }`}
             >
               <ul className="flex flex-col justify-center items-center h-full">
                 <li className="mr-6">
-                  <a href="#" className="text-lg">
+                  <NavLink to="/" className={({ isActive }) => `text-lg styled-nav-link mobile ${isActive ? 'is-active' : ''}`} onClick={() => setBurger(false)}>
                     Home
-                  </a>
+                  </NavLink>
                 </li>
                 <li className="mr-6">
-                  <a href="#" className="text-lg">
+                  <NavLink to="/about" className={({ isActive }) => `text-lg styled-nav-link mobile ${isActive ? 'is-active' : ''}`} onClick={() => setBurger(false)}>
                     About us
-                  </a>
+                  </NavLink>
                 </li>
                 <li className="mr-6">
-                  <a href="#" className="text-lg">
+                  <NavLink to="/teams" className={({ isActive }) => `text-lg styled-nav-link mobile ${isActive ? 'is-active' : ''}`} onClick={() => setBurger(false)}>
                     Our teams
-                  </a>
+                  </NavLink>
                 </li>
                 <li className="mr-6">
-                  <a href="#" className="text-lg">
+                  <NavLink to="/roadmap" className={({ isActive }) => `text-lg styled-nav-link mobile ${isActive ? 'is-active' : ''}`} onClick={() => setBurger(false)}>
                     Marketplace roadmap
-                  </a>
+                  </NavLink>
                 </li>
                 <li className="mr-6">
-                  <a href="#" className="text-lg">
+                  <NavLink to="/whitepaper" className={({ isActive }) => `text-lg styled-nav-link mobile ${isActive ? 'is-active' : ''}`} onClick={() => setBurger(false)}>
                     Whitepaper
-                  </a>
+                  </NavLink>
                 </li>
               </ul>
             </div>
@@ -110,21 +111,21 @@ const Header = () => {
                 <FontAwesomeIcon icon={faAngleDown} className={`transition-transform duration-300 ${dropdownShown ? 'rotate-180' : 'rotate-0'}`} />
               </button>
               <div
-                className={`absolute right-0 mt-2 py-2 w-48 bg-white rounded-md shadow-lg ${
+                className={`absolute right-0 mt-2 py-2 w-48 bg-white rounded-md shadow-lg transition-all duration-300 ${
                   dropdownShown ? 'opacity-100 pointer-events-auto translate-y-2' : 'opacity-0 pointer-events-none translate-y-0'
-                } ${dropdownShown ? 'block' : ''} transition-all duration-300`}
+                }`}
               >
-                <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" onClick={() => setDropdown(false)}>
                   English
                 </a>
-                <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
-                  French
+                <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" onClick={() => setDropdown(false)}>
+                  Vietnamese
                 </a>
-                <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
-                  German
+                <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" onClick={() => setDropdown(false)}>
+                  Japanese
                 </a>
-                <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
-                  Italian
+                <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" onClick={() => setDropdown(false)}>
+                  Chinese
                 </a>
               </div>
             </div>

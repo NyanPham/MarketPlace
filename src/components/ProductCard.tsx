@@ -4,9 +4,10 @@ import { fetchTierById } from '../api/tiers'
 import { fetchUserById } from '../api/users'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart } from '@fortawesome/free-solid-svg-icons'
-import eth from '../../public/assets/logos_ethereum.png'
+import eth from '/assets/logos_ethereum.png'
 import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
+import { toast } from 'react-toastify'
 
 type ProductCardProps = {
   product: Product
@@ -29,14 +30,21 @@ const ProductCard = ({ product }: ProductCardProps) => {
     fetchData()
   }, [product.tierId, product.creatorId])
 
+  const handleAddWishlist = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault()
+    e.stopPropagation()
+
+    toast('Feature in development. Pleease come back later!')
+  }
+
   return (
     <a href={`/products/${product.id}`} className="block bg-gray-800 bg-opacity-60 p-4 pb-5 rounded-lg">
       <div className="relative">
         {loading ? <Skeleton height={200} /> : <img src={product.imageUrl} alt={product.title} className="w-full h-auto rounded-md" />}
         {tier && !loading && <div className="absolute top-2 left-2 bg-gray-700 bg-opacity-50 text-white text-xs px-2 py-1 leading-4 pb-2 rounded-sm">{tier.title}</div>}
-        <div className="absolute top-2 right-2 text-red-500 text-xl">
+        <button className="absolute top-2 right-2 text-red-500 text-xl" onClick={handleAddWishlist}>
           <FontAwesomeIcon icon={faHeart} className="text-white" />
-        </div>
+        </button>
       </div>
       <div className="mt-4">
         <div className="flex justify-between">

@@ -1,7 +1,7 @@
 import Banner from '../components/Banner'
 import MainContent from '../components/MainContent'
 import StarryBackground from '../components/StarryBackground'
-import endBody from '../../public/assets/end-body.png'
+import endBody from '/assets/end-body.png'
 
 const Home = () => {
   return (

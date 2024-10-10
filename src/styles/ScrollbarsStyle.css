@@ -1,23 +1,28 @@
 .custom-scrollbar {
   scrollbar-width: thin;
-  scrollbar-color: #da458f #3a3841;
-  padding-bottom: 10px; /* Add padding to create space between buttons and scrollbar */
+  scrollbar-color: #ffcc21 #777777;
+  padding-bottom: 3px;
 }
 
 .custom-scrollbar::-webkit-scrollbar {
-  height: 8px;
+  width: 3px;
+  border-radius: 3px;
 }
 
 .custom-scrollbar::-webkit-scrollbar-track {
-  background: #3a3841;
+  background: #777777;
+  border-radius: 3px;
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background-color: #da458f;
-  border-radius: 10px;
-  border: 2px solid #3a3841;
+  background: #ffcc21;
+  border-radius: 3px;
+  cursor: pointer;
 }
 
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #ffcc21;
+}
 .cursor-grab {
   cursor: grab;
 }
@@ -29,7 +34,7 @@
 .product-card-list {
   max-height: calc(5 * theme(spacing.80));
   overflow-y: auto;
-  padding-right: 6px; /* Add padding to preserve space for the scrollbar */
+  padding-right: 6px;
 }
 
 .product-card-list::-webkit-scrollbar {

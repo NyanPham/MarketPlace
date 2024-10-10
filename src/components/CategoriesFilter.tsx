@@ -39,7 +39,7 @@ const CategoriesFilter = ({ categories, setCategories, selectedCategoryId, setSe
           {category.title}
         </button>
       ))}
-      <button className="btn opacity-30 hover:opacity-100 transition duration-300" onClick={scrollUp}>
+      <button className="btn opacity-30 hover:opacity-100 transition duration-300" onClick={scrollUp} title="Scroll up">
         <FontAwesomeIcon icon={faAngleUp} />
       </button>
     </div>

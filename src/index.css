@@ -4,12 +4,12 @@
 
 @font-face {
   font-family: 'drone';
-  src: url('../public/assets/fonts/dronerangerpro_bold.otf');
+  src: url('/assets/fonts/dronerangerpro_bold.otf');
 }
 
 @layer components {
   .input {
-    @apply cursor-pointer w-full bg-transparent border border-[#89888B] rounded-[4px] appearance-none py-3 px-6 text-white outline-none focus:outline-none focus:ring focus:ring-[#DA458F] focus:ring-offset-4 transition duration-100;
+    @apply cursor-pointer w-full bg-transparent border border-[#89888B] rounded-[4px] appearance-none py-3 px-6 text-white outline-none focus:outline-none focus:ring-2 focus:ring-[#DA458F] focus:ring-offset-2 focus:ring-offset-[#1A1A1A] transition duration-100;
   }
 
   .btn {

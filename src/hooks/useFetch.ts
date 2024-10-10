@@ -31,7 +31,7 @@ function useFetch<T>(fetchFunction: () => Promise<T>, dependencies: any[] = []) 
     new Promise(() =>
       setTimeout(() => {
         fetchData()
-      }, 3000),
+      }, 2300),
     )
 
     return () => {
