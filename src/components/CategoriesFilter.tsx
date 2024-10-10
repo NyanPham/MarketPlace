@@ -4,7 +4,7 @@ import { faAngleUp } from '@fortawesome/free-solid-svg-icons'
 import { fetchCategories } from '../api/categories'
 import { Category } from '../types'
 
-type CategoriesFilterProps = {
+export type CategoriesFilterProps = {
   categories: Category[]
   setCategories: React.Dispatch<React.SetStateAction<Category[]>>
   selectedCategoryId: number

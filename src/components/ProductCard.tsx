@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Product, Tier, User } from '../types'
 import { fetchTierById } from '../api/tiers'
 import { fetchUserById } from '../api/users'

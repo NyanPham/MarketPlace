@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from 'react-redux'
+import React, { useDispatch, useSelector } from 'react-redux'
 import { RootState } from '../store'
 import {
   setminPrice,
@@ -15,7 +15,7 @@ import SearchBar from './SearchBar'
 import PriceGlider from './PriceGlider'
 import CriteriaSelect, { CriteriaSelectOption } from './CriteriaSelect'
 import FilterButtonsGrid from './FilterButtonsGrid'
-import { useEffect, useState, useCallback } from 'react'
+import { useEffect, useState, useCallback, FormEvent } from 'react'
 import { fetchTiers } from '../api/tiers'
 import { fetchThemes } from '../api/themes'
 import { Tier, Theme } from '../types'
@@ -90,7 +90,7 @@ const PropertiesFilterForm = () => {
     debouncedTriggerFilter()
   }, [selectedTier, selectedTheme, sortedTime, sortedPrice, debouncedTriggerFilter])
 
-  const handleFilterSubmit = (e: React.FormEvent) => {
+  const handleFilterSubmit = (e: FormEvent) => {
     e.preventDefault()
     dispatch(toggleSearchTrigger(true))
   }
