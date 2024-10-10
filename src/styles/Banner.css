@@ -1,3 +1,37 @@
+.scale-on-hover {
+  --scale: 1;
+  transition-duration: 0.7s !important;
+}
+
+.scale-on-hover:hover {
+  --scale: 1.1;
+  transition-duration: 0.7s !important;
+}
+
+.wiggle {
+  animation: wiggle 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+@keyframes wiggle {
+  10%,
+  90% {
+    transform: rotate(0);
+  }
+  20%,
+  80% {
+    transform: rotate(-10deg);
+  }
+  30%,
+  50%,
+  70% {
+    transform: rotate(10deg);
+  }
+  40%,
+  60% {
+    transform: rotate(-10deg);
+  }
+}
+
 @media (orientation: landscape) {
   /* Banner.css */
   .top-25 {

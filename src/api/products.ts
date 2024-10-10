@@ -2,7 +2,7 @@ import { FiltersType, Product } from '../types'
 
 const productCache: { [key: number]: Product } = {}
 
-async function fetchProducts(filters: FiltersType, page: number = 1, pageSize: number = 20): Promise<{ products: Product[]; hasNextPage: boolean }> {
+async function fetchProducts(filters: FiltersType, page: number = 1, pageSize: number = 10): Promise<{ products: Product[]; hasNextPage: boolean }> {
   const response = await fetch('/src/data/dev-products.json')
   if (!response.ok) {
     throw new Error('Network response was not ok')

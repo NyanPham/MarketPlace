@@ -85,10 +85,10 @@ input[type='range'] {
 .tooltip {
   position: absolute;
   top: -40px;
-  transform: translateX(calc(-50% + var(--offset-x)));
+  transform: translateX(calc(-50%));
   background-color: #da3ac0;
   color: #fff;
-  padding: 10px;
+  padding: 10px 16px;
   border-radius: 5px;
   font-size: 14px;
   display: none;
@@ -97,14 +97,6 @@ input[type='range'] {
   white-space: nowrap;
   text-align: center;
   font-weight: medium;
-}
-
-.tooltip.min {
-  --offset-x: +6px;
-}
-
-.tooltip.max {
-  --offset-x: -6px;
 }
 
 .tooltip::after {
