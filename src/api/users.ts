@@ -20,8 +20,8 @@ async function fetchUserById(userId: number): Promise<User> {
   if (userCache[userId]) {
     return userCache[userId]
   }
-
-  const response = await fetch(`/src/data/dev-users.json`)
+  
+  const response = await fetch(`/data/dev-users.json`)
   if (!response.ok) {
     throw new Error('Network response was not ok')
   }
