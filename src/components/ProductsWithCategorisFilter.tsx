@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import CategoriesFilter from './CategoriesFilter'
 import ProductCardList from './ProductCardList'
 import { Category } from '../types'
