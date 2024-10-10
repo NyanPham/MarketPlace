@@ -75,7 +75,7 @@ const PropertiesFilterForm = () => {
   }
 
   return (
-    <div className="w-96">
+    <div className="w-full lg:w-96">
       <form onSubmit={handleFilterSubmit} className="flex flex-col gap-8">
         <SearchBar searchValue={searchValue} setSearchValue={(value) => dispatch(setSearchValue(value))} />
         <PriceGlider minPrice={minPrice} maxPrice={maxPrice} setminPrice={(value) => dispatch(setminPrice(value))} setmaxPrice={(value) => dispatch(setmaxPrice(value))} />

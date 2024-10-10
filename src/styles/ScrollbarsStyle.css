@@ -26,6 +26,12 @@
   cursor: grabbing;
 }
 
+.product-card-list {
+  max-height: calc(5 * theme(spacing.80));
+  overflow-y: auto;
+  padding-right: 6px; /* Add padding to preserve space for the scrollbar */
+}
+
 .product-card-list::-webkit-scrollbar {
   width: 6px;
   border-radius: 4px;
