@@ -52,7 +52,7 @@ const Header = () => {
       <Container>
         <nav className="flex items-center justify-between text-white font-semibold uppercase font-drone text-sm px-6 py-2 lg:px-12 lg:py-6">
           <ul className="hidden lg:flex items-center justify-around">
-            <li className="mr-6 md:mr-10 lg:mr-12">
+            <li className="mr-6 md:mr-10 lg:mr-12 shrink-0">
               <Link to="/">
                 <img src={logo} alt="Logo" className="w-[84px] h-[36px]" />
               </Link>
