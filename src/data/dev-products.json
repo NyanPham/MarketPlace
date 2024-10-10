@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "imageUrl": "https://placehold.co/235x233",
+    "imageUrl": "/assets/products/dj.png",
     "tierId": 31,
     "creatorId": 31,
     "themeId": 21,
@@ -12,7 +12,7 @@
   },
   {
     "id": 2,
-    "imageUrl": "https://placehold.co/235x233",
+    "imageUrl": "/assets/products/assasin.png",
     "tierId": 32,
     "title": "Product 2",
     "creatorId": 31,
@@ -23,7 +23,7 @@
   },
   {
     "id": 3,
-    "imageUrl": "https://placehold.co/235x233",
+    "imageUrl": "/assets/products/neon.png",
     "tierId": 33,
     "title": "Product 3",
     "creatorId": 31,
@@ -34,7 +34,7 @@
   },
   {
     "id": 4,
-    "imageUrl": "https://placehold.co/235x233",
+    "imageUrl": "/assets/products/assasin.png",
     "tierId": 34,
     "title": "Product 4",
     "creatorId": 31,
@@ -45,7 +45,7 @@
   },
   {
     "id": 5,
-    "imageUrl": "https://placehold.co/235x233",
+    "imageUrl": "/assets/products/mafia.png",
     "tierId": 31,
     "title": "Product 5",
     "creatorId": 31,
@@ -56,7 +56,7 @@
   },
   {
     "id": 6,
-    "imageUrl": "https://placehold.co/235x233",
+    "imageUrl": "/assets/products/basketball.png",
     "tierId": 32,
     "title": "Product 6",
     "creatorId": 31,
@@ -67,7 +67,7 @@
   },
   {
     "id": 7,
-    "imageUrl": "https://placehold.co/235x233",
+    "imageUrl": "/assets/products/dj.png",
     "tierId": 33,
     "title": "Product 7",
     "creatorId": 31,
@@ -78,7 +78,7 @@
   },
   {
     "id": 8,
-    "imageUrl": "https://placehold.co/235x233",
+    "imageUrl": "/assets/products/basketball.png",
     "tierId": 34,
     "title": "Product 8",
     "creatorId": 31,
@@ -89,7 +89,7 @@
   },
   {
     "id": 9,
-    "imageUrl": "https://placehold.co/235x233",
+    "imageUrl": "/assets/products/assasin.png",
     "tierId": 31,
     "title": "Product 9",
     "creatorId": 31,
@@ -100,7 +100,7 @@
   },
   {
     "id": 10,
-    "imageUrl": "https://placehold.co/235x233",
+    "imageUrl": "/assets/products/neon.png",
     "tierId": 32,
     "title": "Product 10",
     "creatorId": 31,
@@ -111,7 +111,7 @@
   },
   {
     "id": 11,
-    "imageUrl": "https://placehold.co/235x233",
+    "imageUrl": "/assets/products/assasin.png",
     "tierId": 33,
     "title": "Product 11",
     "creatorId": 31,
@@ -122,7 +122,7 @@
   },
   {
     "id": 12,
-    "imageUrl": "https://placehold.co/235x233",
+    "imageUrl": "/assets/products/mafia.png",
     "tierId": 34,
     "title": "Product 12",
     "creatorId": 31,
@@ -133,7 +133,7 @@
   },
   {
     "id": 13,
-    "imageUrl": "https://placehold.co/235x233",
+    "imageUrl": "/assets/products/basketball.png",
     "tierId": 31,
     "title": "Product 13",
     "creatorId": 31,
@@ -144,7 +144,7 @@
   },
   {
     "id": 14,
-    "imageUrl": "https://placehold.co/235x233",
+    "imageUrl": "/assets/products/dj.png",
     "tierId": 32,
     "title": "Product 14",
     "creatorId": 31,
@@ -155,7 +155,7 @@
   },
   {
     "id": 15,
-    "imageUrl": "https://placehold.co/235x233",
+    "imageUrl": "/assets/products/basketball.png",
     "tierId": 33,
     "title": "Product 15",
     "creatorId": 31,
@@ -166,7 +166,7 @@
   },
   {
     "id": 16,
-    "imageUrl": "https://placehold.co/235x233",
+    "imageUrl": "/assets/products/assasin.png",
     "tierId": 34,
     "title": "Product 16",
     "creatorId": 31,
@@ -177,7 +177,7 @@
   },
   {
     "id": 17,
-    "imageUrl": "https://placehold.co/235x233",
+    "imageUrl": "/assets/products/neon.png",
     "tierId": 31,
     "title": "Product 17",
     "creatorId": 31,
@@ -188,7 +188,7 @@
   },
   {
     "id": 18,
-    "imageUrl": "https://placehold.co/235x233",
+    "imageUrl": "/assets/products/assasin.png",
     "tierId": 32,
     "title": "Product 18",
     "creatorId": 31,
@@ -199,7 +199,7 @@
   },
   {
     "id": 19,
-    "imageUrl": "https://placehold.co/235x233",
+    "imageUrl": "/assets/products/neon.png",
     "tierId": 33,
     "title": "Product 19",
     "creatorId": 31,
@@ -210,7 +210,7 @@
   },
   {
     "id": 20,
-    "imageUrl": "https://placehold.co/235x233",
+    "imageUrl": "/assets/products/basketball.png",
     "tierId": 34,
     "title": "Product 20",
     "creatorId": 31,
@@ -221,7 +221,7 @@
   },
   {
     "id": 22,
-    "imageUrl": "https://placehold.co/235x233",
+    "imageUrl": "/assets/products/dj.png",
     "tierId": 34,
     "title": "Product 22",
     "creatorId": 31,
@@ -232,7 +232,7 @@
   },
   {
     "id": 23,
-    "imageUrl": "https://placehold.co/235x233",
+    "imageUrl": "/assets/products/mafia.png",
     "tierId": 32,
     "title": "Product 23",
     "creatorId": 31,

@@ -7,7 +7,7 @@ const Home = () => {
   return (
     <>
       <Banner />
-      <div className="relative min-h-screen">
+      <div className="relative min-h-screen font-inter">
         <StarryBackground />
         <MainContent />
         <img src={endBody} alt="Background style" />

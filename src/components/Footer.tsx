@@ -7,7 +7,7 @@ const Footer = () => {
   const handleSubscribe = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
-    toast('Feature in development. Pleease come back later!')
+    toast.info('Feature in development. Pleease come back later!')
   }
 
   return (

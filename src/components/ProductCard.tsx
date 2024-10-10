@@ -34,7 +34,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
     e.preventDefault()
     e.stopPropagation()
 
-    toast('Feature in development. Pleease come back later!')
+    toast.info('Feature in development. Pleease come back later!')
   }
 
   return (
@@ -47,11 +47,11 @@ const ProductCard = ({ product }: ProductCardProps) => {
         </button>
       </div>
       <div className="mt-4">
-        <div className="flex justify-between">
+        <div className="flex justify-between items-center">
           <h2 className="text-white text-lg truncate max-w-full">{loading ? <Skeleton width={150} /> : product.title}</h2>
           <p className="text-white gap-4">
-            <img src={eth} alt="Logo ETH" className="inline mr-2" />
-            {loading ? <Skeleton width={50} /> : `${product.price} ETH`}
+            <img src={eth} alt="Logo ETH" className="inline mr-2 pb-1" />
+            {loading ? <Skeleton width={50} /> : `${product.price.toString().replace('.', ',')} ETH`}
           </p>
         </div>
         <div className="flex items-center mt-4 max-w-full">

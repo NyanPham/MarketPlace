@@ -101,7 +101,7 @@ const Header = () => {
               </ul>
             </div>
           </div>
-          <div className="flex items-center">
+          <div className="flex items-center gap-4">
             <button className="bg-gradient-to-r from-[#DA458F] to-[#DA34DD] hover:from-[#DA458F] hover:to-[#DA34DD] text-white font-bold py-2 px-4 rounded mr-4">
               Connect wallet
             </button>
