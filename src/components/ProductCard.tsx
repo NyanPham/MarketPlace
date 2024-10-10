@@ -8,6 +8,7 @@ import eth from '/assets/logos_ethereum.png'
 import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 import { toast } from 'react-toastify'
+import { Link } from 'react-router-dom'
 
 type ProductCardProps = {
   product: Product
@@ -38,7 +39,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
   }
 
   return (
-    <a href={`/products/${product.id}`} className="block bg-gray-800 bg-opacity-60 p-4 pb-5 rounded-lg">
+    <Link to={`/products/${product.id}`} className="block bg-gray-800 bg-opacity-60 p-4 pb-5 rounded-lg">
       <div className="relative">
         {loading ? <Skeleton height={200} /> : <img src={product.imageUrl} alt={product.title} className="w-full h-auto rounded-md" />}
         {tier && !loading && <div className="absolute top-2 left-2 bg-gray-700 bg-opacity-50 text-white text-xs px-2 py-1 leading-4 pb-2 rounded-sm">{tier.title}</div>}
@@ -48,9 +49,9 @@ const ProductCard = ({ product }: ProductCardProps) => {
       </div>
       <div className="mt-4">
         <div className="flex justify-between items-center">
-          <h2 className="text-white text-lg truncate max-w-full">{loading ? <Skeleton width={150} /> : product.title}</h2>
+          <h2 className="text-white text-lg truncate max-w-full font-semibold">{loading ? <Skeleton width={150} /> : product.title}</h2>
           <p className="text-white gap-4">
-            <img src={eth} alt="Logo ETH" className="inline mr-2 pb-1" />
+            <img src={eth} alt="Logo ETH" className="inline mr-2 pb-1 font-medium" />
             {loading ? <Skeleton width={50} /> : `${product.price.toString().replace('.', ',')} ETH`}
           </p>
         </div>
@@ -59,7 +60,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
           <span className="text-white truncate max-w-full">{loading ? <Skeleton width={100} /> : user?.name}</span>
         </div>
       </div>
-    </a>
+    </Link>
   )
 }
 

@@ -7,6 +7,7 @@ import useOnScreen from '../hooks/useOnScreen'
 import { useEffect, useRef } from 'react'
 import Container from './Container'
 import '../styles/Banner.css'
+import { Link } from 'react-router-dom'
 
 const Banner = () => {
   const inViewRef = useRef<HTMLDivElement | null>(null)
@@ -54,10 +55,16 @@ const Banner = () => {
       <Container>
         <div className="absolute inset-0 bg-black opacity-70 z-0" />
         <img src={cates} alt="Categories" style={categoriesAnimation} className="absolute bottom-0 left-0 w-full" />
-        <img src={newTag} alt="New tag" style={newTagAnimation} className={`${isVisible || animationRef.current ? 'animate-shake' : ''} absolute top-25 left-10vw w-25`} />
-        <img src={arrivalTxt} alt="arrival text" style={arrivalTxtAnimation} className="absolute top-29 left-35vw w-29" />
-        <img src={djChar} alt="DJ person" style={djCharAnimation} className="absolute bottom-0 right-20 w-23" />
-        <img src={djText} alt="DJ banner" style={djTxtAnimation} className="absolute bottom-0 -translate-y-4 right-10 w-30" />
+        <Link to="#">
+          <img src={newTag} alt="New tag" style={newTagAnimation} className={`${isVisible || animationRef.current ? 'animate-shake' : ''} absolute top-25 left-10vw w-25`} />
+        </Link>
+        <Link to="#">
+          <img src={arrivalTxt} alt="arrival text" style={arrivalTxtAnimation} className="absolute top-29 left-35vw w-29" />
+        </Link>
+        <Link to="#">
+          <img src={djChar} alt="DJ person" style={djCharAnimation} className="absolute bottom-0 right-20 w-23" />
+          <img src={djText} alt="DJ banner" style={djTxtAnimation} className="absolute bottom-0 -translate-y-4 right-10 w-30" />
+        </Link>
       </Container>
     </div>
   )

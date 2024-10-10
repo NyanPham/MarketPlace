@@ -1,19 +1,31 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleDown, faCaretDown, faGlobe } from '@fortawesome/free-solid-svg-icons'
 import { useToggle } from '../hooks/useToggle'
 import Container from './Container'
-import { NavLink } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
+import logo from '/assets/logo.png'
 
 const Header = () => {
   const [dropdownShown, toggleDropdown, setDropdown] = useToggle(false)
   const [burgerShown, toggleBurger, setBurger] = useToggle(false)
+  const [isHeaderVisible, setIsHeaderVisible] = useState(true)
   const dropdownRef = useRef<HTMLDivElement | null>(null)
+  const lastScrollY = useRef(0)
 
   const handleClickOutside = (event: MouseEvent) => {
     if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
       setDropdown(false)
     }
+  }
+
+  const handleScroll = () => {
+    if (window.scrollY > lastScrollY.current) {
+      setIsHeaderVisible(false)
+    } else {
+      setIsHeaderVisible(true)
+    }
+    lastScrollY.current = window.scrollY
   }
 
   useEffect(() => {
@@ -28,11 +40,23 @@ const Header = () => {
     }
   }, [dropdownShown])
 
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll)
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
+
   return (
-    <header className="bg-[#17161A]/50 fixed top-0 left-0 w-full z-10 font-drone">
+    <header className={`bg-[#17161A]/50 fixed top-0 left-0 w-full z-10 font-drone transition-transform duration-300 ${isHeaderVisible ? 'translate-y-0' : '-translate-y-full'}`}>
       <Container>
         <nav className="flex items-center justify-between text-white font-semibold uppercase font-drone text-sm px-6 py-2 lg:px-12 lg:py-6">
           <ul className="hidden lg:flex items-center justify-around">
+            <li className="mr-6 md:mr-10 lg:mr-12">
+              <Link to="/">
+                <img src={logo} alt="Logo" className="w-[84px] h-[36px]" />
+              </Link>
+            </li>
             <li className="mr-6 md:mr-10 lg:mr-12">
               <NavLink to="/" className={({ isActive }) => `text-lg styled-nav-link ${isActive ? 'is-active' : ''}`}>
                 Home
@@ -115,18 +139,18 @@ const Header = () => {
                   dropdownShown ? 'opacity-100 pointer-events-auto translate-y-2' : 'opacity-0 pointer-events-none translate-y-0'
                 }`}
               >
-                <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" onClick={() => setDropdown(false)}>
+                <Link to="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" onClick={() => setDropdown(false)}>
                   English
-                </a>
-                <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" onClick={() => setDropdown(false)}>
+                </Link>
+                <Link to="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" onClick={() => setDropdown(false)}>
                   Vietnamese
-                </a>
-                <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" onClick={() => setDropdown(false)}>
+                </Link>
+                <Link to="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" onClick={() => setDropdown(false)}>
                   Japanese
-                </a>
-                <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" onClick={() => setDropdown(false)}>
+                </Link>
+                <Link to="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" onClick={() => setDropdown(false)}>
                   Chinese
-                </a>
+                </Link>
               </div>
             </div>
           </div>
