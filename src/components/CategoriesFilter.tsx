@@ -1,75 +1,45 @@
-import React, { useState, useRef } from 'react'
+import React, { useRef, useEffect } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleUp } from '@fortawesome/free-solid-svg-icons'
+import { fetchCategories } from '../api/categories'
+import { Category } from '../types'
 
-const categories = [
-  { name: 'All', value: 'all' },
-  { name: 'Upper Body', value: 'upper-body' },
-  { name: 'Lower Body', value: 'lower-body' },
-  { name: 'Hat', value: 'hat' },
-  { name: 'Shoes', value: 'shoes' },
-  { name: 'Accessory', value: 'accessory' },
-  { name: 'Legendary', value: 'legendary' },
-  { name: 'Mythic', value: 'mythic' },
-  { name: 'Epic', value: 'epic' },
-  { name: 'Rare', value: 'rare' },
-]
+type CategoriesFilterProps = {
+  categories: Category[]
+  setCategories: React.Dispatch<React.SetStateAction<Category[]>>
+  selectedCategoryId: number
+  setSelectedCategoryId: React.Dispatch<React.SetStateAction<number>>
+  scrollUp: () => void
+}
 
-const CategoriesFilter = () => {
-  const [selectedCategory, setSelectedCategory] = useState('all')
+const CategoriesFilter = ({ categories, setCategories, selectedCategoryId, setSelectedCategoryId, scrollUp }: CategoriesFilterProps) => {
   const containerRef = useRef<HTMLDivElement>(null)
-  const [isDragging, setIsDragging] = useState(false)
-  const [startX, setStartX] = useState(0)
-  const [scrollLeft, setScrollLeft] = useState(0)
-  const [isClick, setIsClick] = useState(true)
 
-  const handleCategoryClick = (value: string) => {
-    if (isClick) {
-      setSelectedCategory(value)
+  useEffect(() => {
+    const fetchCategoriesData = async () => {
+      try {
+        const categoriesData = await fetchCategories()
+        setCategories([{ title: 'All', id: 0, slug: 'all', description: '' }, ...categoriesData])
+      } catch (error) {
+        console.error('Error fetching categories:', error)
+      }
     }
-  }
 
-  const handleMouseDown = (e: React.MouseEvent) => {
-    if (containerRef.current) {
-      setIsDragging(true)
-      setIsClick(true)
-      setStartX(e.pageX - containerRef.current.offsetLeft)
-      setScrollLeft(containerRef.current.scrollLeft)
-    }
-  }
+    fetchCategoriesData()
+  }, [])
 
-  const handleMouseLeave = () => {
-    setIsDragging(false)
-  }
-
-  const handleMouseUp = () => {
-    setIsDragging(false)
-  }
-
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (!isDragging || !containerRef.current) return
-    e.preventDefault()
-    setIsClick(false)
-    const x = e.pageX - containerRef.current.offsetLeft
-    const walk = (x - startX) * 2 // Adjust the scroll speed
-    containerRef.current.scrollLeft = scrollLeft - walk
+  const handleCategoryClick = (id: number) => {
+    setSelectedCategoryId(id)
   }
 
   return (
-    <div
-      className="flex gap-6 overflow-x-auto custom-scrollbar p-2 cursor-grab select-none"
-      ref={containerRef}
-      onMouseDown={handleMouseDown}
-      onMouseLeave={handleMouseLeave}
-      onMouseUp={handleMouseUp}
-      onMouseMove={handleMouseMove}
-    >
-      {categories.map((category) => (
-        <button key={category.value} className={`btn shrink-0 ${selectedCategory === category.value ? '' : 'opacity-30'}`} onClick={() => handleCategoryClick(category.value)}>
-          {category.name}
+    <div className="flex gap-4 overflow-x-auto custom-scrollbar p-2 cursor-grab select-none" ref={containerRef}>
+      {categories.map((category: Category) => (
+        <button key={category.slug} className={`btn text-sm shrink-0 ${selectedCategoryId === category.id ? '' : 'opacity-30'}`} onClick={() => handleCategoryClick(category.id)}>
+          {category.title}
         </button>
       ))}
-      <button className="btn opacity-30">
+      <button className="btn opacity-30 hover:opacity-100 transition duration-300" onClick={scrollUp}>
         <FontAwesomeIcon icon={faAngleUp} />
       </button>
     </div>

@@ -1,6 +1,5 @@
-import CategoriesFilter from './CategoriesFilter'
 import Container from './Container'
-import ProductCardList from './ProductCardList'
+import ProductsWithCategorisFilter from './ProductsWithCategorisFilter'
 import PropertiesFilterForm from './PropertiesFilterForm'
 
 const MainContent = () => {
@@ -8,10 +7,7 @@ const MainContent = () => {
     <Container>
       <div className="flex pt-28 w-full gap-8">
         <PropertiesFilterForm />
-        <div className="flex flex-col gap-8 overflow-x-auto">
-          <CategoriesFilter />
-          <ProductCardList />
-        </div>
+        <ProductsWithCategorisFilter />
       </div>
     </Container>
   )

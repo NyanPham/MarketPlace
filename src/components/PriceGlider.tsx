@@ -52,6 +52,7 @@ const PriceGlider = ({ minPrice, maxPrice, setminPrice, setmaxPrice }: PriceGlid
           type="range"
           min="0"
           max="100"
+          step="0.01"
           value={minPrice}
           onChange={handleMinChange}
           onMouseDown={() => handleDragStart('min')}
@@ -63,6 +64,7 @@ const PriceGlider = ({ minPrice, maxPrice, setminPrice, setmaxPrice }: PriceGlid
           type="range"
           min="0"
           max="100"
+          step="0.01"
           value={maxPrice}
           onChange={handleMaxChange}
           onMouseDown={() => handleDragStart('max')}
@@ -74,8 +76,8 @@ const PriceGlider = ({ minPrice, maxPrice, setminPrice, setmaxPrice }: PriceGlid
         <input type="hidden" value={maxPrice} name="maxPrice" />
 
         <div className="price-labels">
-          <div className="min-price">Min: ${minPrice}</div>
-          <div className="max-price">Max: ${maxPrice}</div>
+          <div className="min-price">{minPrice} ETH</div>
+          <div className="max-price">{maxPrice} ETH</div>
         </div>
       </div>
     </PropertyFilterItem>

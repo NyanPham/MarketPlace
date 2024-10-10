@@ -2,7 +2,7 @@ import { FiltersType, Product } from '../types'
 
 const productCache: { [key: number]: Product } = {}
 
-async function fetchProducts(filters: FiltersType): Promise<Product[]> {
+async function fetchProducts(filters: FiltersType, page: number = 1, pageSize: number = 20): Promise<{ products: Product[]; hasNextPage: boolean }> {
   const response = await fetch('/src/data/dev-products.json')
   if (!response.ok) {
     throw new Error('Network response was not ok')
@@ -47,11 +47,16 @@ async function fetchProducts(filters: FiltersType): Promise<Product[]> {
       return 0
     })
 
-  sortedData.forEach((product: Product) => {
+  const startIndex = (page - 1) * pageSize
+  const endIndex = startIndex + pageSize
+  const paginatedData = sortedData.slice(startIndex, endIndex)
+  const hasNextPage = endIndex < sortedData.length
+
+  paginatedData.forEach((product: Product) => {
     productCache[product.id] = product
   })
 
-  return sortedData as Product[]
+  return { products: paginatedData, hasNextPage }
 }
 
 async function fetchProductById(productId: number): Promise<Product> {

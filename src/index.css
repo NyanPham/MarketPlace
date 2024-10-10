@@ -13,6 +13,6 @@
   }
 
   .btn {
-    @apply bg-gradient-to-r from-[#DA458F] to-[#DA34DD] hover:from-[#DA458F] hover:to-[#DA34DD] text-white font-bold py-3 px-4 rounded;
+    @apply disabled:bg-slate-500 disabled:text-slate-700 bg-gradient-to-r from-[#DA458F] to-[#DA34DD] hover:from-[#DA458F] hover:to-[#DA34DD] text-white font-bold py-3 px-4 rounded transition-all duration-300;
   }
 }

@@ -21,14 +21,12 @@ import { fetchThemes } from '../api/themes'
 import { Tier, Theme } from '../types'
 
 const timeOptions: CriteriaSelectOption[] = [
-  { name: 'All', value: 0, isDefault: true },
-  { name: 'Latest', value: 'ascending', isDefault: false },
+  { name: 'Latest', value: 'ascending', isDefault: true },
   { name: 'Oldest', value: 'descending', isDefault: false },
 ]
 
 const priceOptions: CriteriaSelectOption[] = [
-  { name: 'All', value: 0, isDefault: true },
-  { name: 'Low to High', value: 'ascending', isDefault: false },
+  { name: 'Low to High', value: 'ascending', isDefault: true },
   { name: 'High to Low', value: 'descending', isDefault: false },
 ]
 
