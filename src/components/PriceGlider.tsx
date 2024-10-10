@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
-import '../styles/PriceGliderStyle.css'
 import PropertyFilterItem from './PropertyFilterItem'
+import '../styles/PriceGliderStyle.css'
 
 type PriceGliderProps = {
   minPrice: number

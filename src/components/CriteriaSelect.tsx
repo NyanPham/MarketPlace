@@ -1,3 +1,4 @@
+import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import PropertyFilterItem from './PropertyFilterItem'
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons'
@@ -24,7 +25,7 @@ const CriteriaSelect = ({ title, options, selectedValue, setSelectedValue }: Cri
     console.log(e.target.value)
     e.target.blur()
   }
-    
+
   return (
     <PropertyFilterItem title={title} titleClasses="text-secondary">
       <div className="relative mt-4 w-full select-none">
